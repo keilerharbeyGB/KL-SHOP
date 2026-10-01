@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+    <title>KL SHOP</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+
+
+<body>
+
+<div class="navbar">
+    
+    <div class="dropdown">
+        <a>HOMBRE</a>
+        <div class="dropdown-content">
+            <a href="gorras.html">Gorras</a>
+            <a href="camisas.html">Camisas</a>
+            <a href="pantalones.html">Pantalones</a>
+            <a href="zapatos.html">Zapatos</a>
+        </div>     
+    </div>
+      <div>
+        <a href="index.html">INICIO</a>
+    </div>
+
+</div>
+
+
+<div class="titulo">
+    <h1>COLECCIÓN GORRAS</h1>
+    <div class="linea"></div>
+    <p class="subtitulo">Estilo urbano con esencia premium</p>
+</div>
+
+<div class="productos">
+    <h2>🔥 MÁS VENDIDOS</h2>
+
+    <div class="grid-productos">
+
+        <div class="producto">
+            <img src="https://clemont.co/cdn/shop/files/gorra-argento-gris-oscuro-clemont-6094230.jpg">
+            <h3>GORRA ARGENTO GRIS</h3>
+            <p>CLEMONT</p>
+            <button onclick="mostrarMensaje()">
+                <span class="precio-boton">$249.999</span>
+                <span class="texto-añadir">Añadir 🛒</span>
+            </button>
+        </div>
+
+        <div class="producto">
+            <img src="https://drop-shop.mx/cdn/shop/files/1_900x_efe5dda5-f65d-40ce-8eec-5a900a601052.webp">
+            <h3>EL BARBAS HATS CHROME</h3>
+            <p>Drop Shop</p>
+            <button onclick="mostrarMensaje()">
+                <span class="precio-boton">$249.999</span>
+                <span class="texto-añadir">Añadir 🛒</span>
+            </button>
+        </div>
+
+        <div class="producto">
+            <img src="https://i.ibb.co/R4MscRLZ/12-1.jpg">
+            <h3>BOSS BORDADA</h3>
+            <p>BOSS</p>
+            <button onclick="mostrarMensaje()">
+                <span class="precio-boton">$249.999</span>
+                <span class="texto-añadir">Añadir 🛒</span>
+            </button>
+        </div>
+
+        <div class="producto">
+            <img src="https://coach.scene7.com/is/image/Coach/ch788_chr_a0?$desktopProduct$">
+            <h3>BÉISBOL JACQUARD</h3>
+            <p>COACH</p>
+            <button onclick="mostrarMensaje()">
+                <span class="precio-boton">$249.999</span>
+                <span class="texto-añadir">Añadir 🛒</span>
+            </button>
+        </div>
+
+    </div>
+</div>
+<div class="footer">
+    <div class="footer-container">
+
+        <div class="footer-col">
+            <h3>TIENDA</h3>
+            <a href="#">Nuevos</a>
+            <a href="#">Ofertas</a>
+        </div>
+
+        <div class="footer-col">
+            <h3>AYUDA</h3>
+            <a href="devoluciones.html">Devoluciones</a>
+            <a href="soporte.html">Soporte</a></div>
+
+        <div class="footer-col">
+            <h3>CONTACTO</h3>
+            <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+            <a href="https://www.whatsapp.com/" target="_blank">WhatsApp</a>
+        </div>
+    
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 <span>KL SHOP</span> @KL
+    </div>
+<div id="toast" class="toast">Producto agregado al carrito 🛒</div>
+
+<script>
+function mostrarMensaje() {
+    const mensaje = document.getElementById("toast");
+
+    mensaje.classList.add("mostrar");
+
+    clearTimeout(window.toastTimer);
+
+    window.toastTimer = setTimeout(() => {
+        mensaje.classList.remove("mostrar");
+    }, 2500);
+}
+</script>
+</body>
+</html>

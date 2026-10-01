@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+    <title>KL SHOP</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+
+
+<body>
+
+<div class="navbar">
+    
+    <div class="dropdown">
+        <a>HOMBRE</a>
+        <div class="dropdown-content">
+            <a href="gorras.html">Gorras</a>
+            <a href="camisas.html">Camisas</a>
+            <a href="pantalones.html">Pantalones</a>
+            <a href="zapatos.html">Zapatos</a>
+        </div>     
+    </div>
+      <div>
+        <a href="index.html">INICIO</a>
+    </div>
+
+</div>
+<div class="titulo">
+    <h1>Zapatos</h1>
+    <div class="linea"></div>
+    <p class="subtitulo">Estilo urbano con esencia premium</p>
+</div>
+
+<div class="productos">
+    <h2>👟 ZAPATOS</h2>
+
+    <div class="grid-productos">
+
+        <div class="producto">
+            <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSt1j0FO2ZLlldbOhKSZJ6PsW1QbkpwXNz-NhNxTYxsrt862_iY8SII9pR5jzggG7pggVqBPDShHSq93vs4eWjhrVpd38b4OA">
+            <h3>ZAPATILLAS AIR FORCE ONE 1.1</h3>
+            <p>Nike</p>
+
+            <button onclick="mostrarMensaje()">
+                <span class="precio-boton">$120.000</span>
+                <span class="texto-añadir">Añadir 🛒</span>
+            </button>
+        </div>
+
+        <div class="producto">
+            <img src="https://cdn.shopify.com/s/files/1/0819/9274/5265/files/IMG_3361.jpg?v=1762480082">
+            <h3>ZAPATILLAS AIR FORCE ONE DRAKE 1.1</h3>
+            <p>Nike</p>
+
+            <button onclick="mostrarMensaje()">
+                <span class="precio-boton">$195.000</span>
+                <span class="texto-añadir">Añadir 🛒</span>
+            </button>
+        </div>
+
+        <div class="producto">
+            <img src="https://nikeco.vtexassets.com/arquivos/ids/403869-1200-auto?v=638393876925970000&width=1200&height=auto&aspect=true">
+            <h3>NIKE AIR MAX PLUS</h3>
+            <p>Nike</p>
+
+            <button onclick="mostrarMensaje()">
+                <span class="precio-boton">$320.000</span>
+                <span class="texto-añadir">Añadir 🛒</span>
+            </button>
+        </div>
+
+        <div class="producto">
+            <img src="https://distriurbancolombia.com/wp-content/uploads/2024/10/LV-8888.png">
+            <h3>LOUIS VUITTON SKATE</h3>
+            <p>Louis Vuitton</p>
+            <button onclick="mostrarMensaje()">
+                <span class="precio-boton">$420.000</span>
+                <span class="texto-añadir">Añadir 🛒</span>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="footer-container">
+
+        <div class="footer-col">
+            <h3>TIENDA</h3>
+            <a href="#">Nuevos</a>
+            <a href="#">Ofertas</a>
+        </div>
+
+        <div class="footer-col">
+            <h3>AYUDA</h3>
+            <a href="devoluciones.html">Devoluciones</a>
+            <a href="soporte.html">Soporte</a></div>
+
+        <div class="footer-col">
+            <h3>CONTACTO</h3>
+            <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+            <a href="https://www.whatsapp.com/" target="_blank">WhatsApp</a>
+        </div>
+    
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 <span>KL SHOP</span> @KL
+    </div>
+<div id="toast" class="toast">
+    Producto agregado al carrito 🛒
+</div>
+
+<script>
+function mostrarMensaje() {
+
+    const mensaje = document.getElementById("toast");
+
+    mensaje.classList.add("mostrar");
+
+    clearTimeout(window.toastTimer);
+
+    window.toastTimer = setTimeout(() => {
+        mensaje.classList.remove("mostrar");
+    }, 2500);
+}
+</script>
+</body>
+</html>

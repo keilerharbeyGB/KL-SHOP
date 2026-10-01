@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soporte | KL SHOP</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+    <div class="titulo">
+        <h1>Soporte</h1>
+        <div class="linea"></div>
+        <p class="subtitulo">¿Necesitas ayuda? Escríbenos</p>
+    </div>
+
+    <div class="formulario">
+        <form id="formulario-soporte">
+
+            <label>Nombre completo</label>
+            <input type="text" placeholder="Ingresa tu nombre" required>
+
+            <label>Correo electrónico</label>
+            <input type="email" placeholder="Ingresa tu correo" required>
+
+            <label>Asunto</label>
+            <input type="text" placeholder="Escribe el asunto" required>
+
+            <button type="submit">ENVIAR SOLICITUD</button>
+
+            <p id="mensaje-enviado">Solicitud enviada</p>
+
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("formulario-soporte").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            document.getElementById("mensaje-enviado").style.display = "block";
+
+            this.reset();
+
+            setTimeout(() => {
+                window.location.href = "./index.html";
+            }, 2500);
+        });
+    </script>
+
+</body>
+</html>

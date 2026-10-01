@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+    <title>KL SHOP</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+
+
+<body>
+<div class="navbar">
+    
+    <div class="dropdown">
+        <a>HOMBRE</a>
+        <div class="dropdown-content">
+            <a href="gorras.html">Gorras</a>
+            <a href="camisas.html">Camisas</a>
+            <a href="pantalones.html">Pantalones</a>
+            <a href="zapatos.html">Zapatos</a>
+        </div>     
+    </div>
+      <div>
+        <a href="index.html">INICIO</a>
+    </div>
+
+</div>
+<div class="titulo">
+    <h1>Camisas</h1>
+    <div class="linea"></div>
+    <p class="subtitulo">Estilo urbano con esencia premium</p>
+</div>
+
+
+<div class="productos">
+    <h2>👕 CAMISETAS</h2>
+
+    <div class="grid-productos">
+
+        <div class="producto">
+            <img src="https://coach.scene7.com/is/image/Coach/cp978_r8e_a0?$desktopProductZoom$">
+            <h3>CAMISETA DE FIRMA</h3>
+            <p>Coach</p>
+
+            <button onclick="mostrarMensaje()">
+                <span class="precio-boton">$249.999</span>
+                <span class="texto-añadir">Añadir 🛒</span>
+            </button>
+        </div>
+
+        <div class="producto">
+            <img src="https://www.antioquiaventas.com/cdn/shop/files/CAMISETA-CLEMONT-NEGRO-EREBO-1_f4e79d7d-6736-4644-8bd8-4ec24cf891d7.jpg?v=1759331432&width=960">
+            <h3>CLEMONT EREBO BLACK</h3>
+            <p>Clemont</p>
+
+            <button onclick="mostrarMensaje()">
+                <span class="precio-boton">$450.000</span>
+                <span class="texto-añadir">Añadir 🛒</span>
+            </button>
+        </div>
+
+        <div class="producto">
+            <img src="https://dropstore.com.co/cdn/shop/files/1_6996224d-ca1f-4702-9591-45608d2b4646.jpg?v=1762860080&width=2160">
+            <h3>HELIOS PHASES</h3>
+            <p>Undergold</p>
+
+            <button onclick="mostrarMensaje()">
+                <span class="precio-boton">$249.999</span>
+                <span class="texto-añadir">Añadir 🛒</span>
+            </button>
+        </div>
+
+        <div class="producto">
+            <img src="https://img01.ztat.net/article/spp-media-p1/895046e399dc43c2b2a71e867cf78c1f/74cde8f7184e40ccbba638756d2acd64.jpg?imwidth=1800">
+            <h3>CAMISETA BÁSICA</h3>
+            <p>Boss</p>
+
+            <button onclick="mostrarMensaje()">
+                <span class="precio-boton">$249.999</span>
+                <span class="texto-añadir">Añadir 🛒</span>
+            </button>
+        </div>
+
+    </div>
+</div>
+<div class="footer">
+    <div class="footer-container">
+
+        <div class="footer-col">
+            <h3>TIENDA</h3>
+            <a href="#">Nuevos</a>
+            <a href="#">Ofertas</a>
+        </div>
+
+        <div class="footer-col">
+            <h3>AYUDA</h3>
+            <a href="devoluciones.html">Devoluciones</a>
+            <a href="soporte.html">Soporte</a></div>
+
+        <div class="footer-col">
+            <h3>CONTACTO</h3>
+            <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+            <a href="https://www.whatsapp.com/" target="_blank">WhatsApp</a>
+        </div>
+    
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 <span>KL SHOP</span> @KL
+    </div>
+<div id="toast" class="toast">Producto agregado al carrito 🛒</div>
+
+<script>
+function mostrarMensaje() {
+    const mensaje = document.getElementById("toast");
+
+    mensaje.classList.add("mostrar");
+
+    clearTimeout(window.toastTimer);
+
+    window.toastTimer = setTimeout(() => {
+        mensaje.classList.remove("mostrar");
+    }, 2500);
+}
+</script>
+</body>
+</html>

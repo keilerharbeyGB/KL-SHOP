@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devoluciones | KL SHOP</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+    <div class="titulo">
+        <h1>Devoluciones</h1>
+        <div class="linea"></div>
+        <p class="subtitulo">Solicita tu devolución</p>
+    </div>
+
+    <div class="formulario">
+        <form id="formulario-devolucion">
+
+            <label>Nombre completo</label>
+            <input type="text" placeholder="Ingresa tu nombre" required>
+
+            <label>Correo electrónico</label>
+            <input type="email" placeholder="Ingresa tu correo" required>
+
+            <label>Número de pedido</label>
+            <input type="text" placeholder="Ej: KL12345" required>
+
+            <label>Motivo de la devolución</label>
+            <input type="text" placeholder="Escribe el motivo" required>
+
+            <label>Mensaje</label>
+            <textarea placeholder="Cuéntanos qué ocurrió" required></textarea>
+
+            <button type="submit">ENVIAR SOLICITUD</button>
+
+            <p id="mensaje-enviado">Solicitud enviada</p>
+
+        </form>
+    </div>
+
+<script>
+    document.getElementById("formulario-devolucion").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        document.getElementById("mensaje-enviado").style.display = "block";
+
+        this.reset();
+
+        setTimeout(() => {
+        window.location.href = "./index.html";
+        },2500);
+    });
+</script>
+</body>
+</html>
