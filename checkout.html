@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proceder al pago | KL SHOP</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <nav class="navbar" aria-label="Navegación principal">
+        <a href="index.html">KL SHOP</a>
+        <a href="index.html">INICIO</a>
+        <a href="seguimiento.html">SEGUIMIENTO DE PEDIDO</a>
+    </nav>
+
+    <main class="checkout-page">
+        <div class="titulo">
+            <h1>Finalizar compra</h1>
+            <div class="linea"></div>
+            <p class="subtitulo">Confirma tu pedido</p>
+        </div>
+
+        <div class="checkout-layout">
+            <section class="checkout-card" aria-labelledby="checkout-order-title">
+                <h2 id="checkout-order-title">Resumen del pedido</h2>
+                <div id="checkout-items" class="checkout-order-items"></div>
+                <p class="checkout-total">Total <strong id="checkout-total">$0</strong></p>
+            </section>
+
+            <section class="checkout-card" aria-labelledby="checkout-customer-title">
+                <h2 id="checkout-customer-title">Datos de contacto y envío</h2>
+                <form id="checkout-form" class="checkout-form">
+                    <label>Nombre completo
+                        <input name="nombre" autocomplete="name" required>
+                    </label>
+                    <label>Teléfono
+                        <input name="telefono" type="tel" autocomplete="tel" minlength="7" required>
+                    </label>
+                    <label>Ciudad
+                        <input name="ciudad" autocomplete="address-level2" required>
+                    </label>
+                    <label>Dirección de envío
+                        <input name="direccion" autocomplete="street-address" required>
+                    </label>
+                    <fieldset class="checkout-card-fields">
+                        <legend>Pago con tarjeta</legend>
+                        <label>Nombre en la tarjeta
+                            <input name="titular" autocomplete="off" required>
+                        </label>
+                        <label>Número de tarjeta
+                            <input id="card-number" name="numero-tarjeta" type="text" inputmode="numeric" autocomplete="off" maxlength="23" placeholder="0000 0000 0000 0000" pattern="[0-9 ]{12,23}" required>
+                        </label>
+                        <div class="checkout-card-row">
+                            <label>Vencimiento
+                                <input id="card-expiry" name="vencimiento" type="month" autocomplete="off" required>
+                            </label>
+                            <label>Código de seguridad
+                                <input name="codigo-seguridad" type="password" inputmode="numeric" autocomplete="off" minlength="3" maxlength="4" pattern="[0-9]{3,4}" required>
+                            </label>
+                        </div>
+                    </fieldset>
+                    <p id="checkout-status" class="checkout-status" role="status" aria-live="polite"></p>
+                    <button id="checkout-submit" class="cart-checkout" type="submit">Pagar</button>
+                </form>
+                <a class="checkout-back-link" href="index.html">Volver a la tienda</a>
+            </section>
+        </div>
+
+        <section id="checkout-success" class="checkout-success" aria-live="polite" hidden></section>
+    </main>
+
+    <script src="checkout.js"></script>
+</body>
+</html>

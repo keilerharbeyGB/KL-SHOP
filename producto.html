@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Producto | KL SHOP</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="dropdown">
+            <a href="index.html">HOMBRE</a>
+            <div class="dropdown-content">
+                <a href="gorras.html">Gorras</a>
+                <a href="camisas.html">Camisas</a>
+                <a href="pantalones.html">Pantalones</a>
+                <a href="zapatos.html">Zapatos</a>
+            </div>
+        </div>
+        <a href="index.html">INICIO</a>
+        <a href="seguimiento.html">SEGUIMIENTO DE PEDIDO</a>
+        <button class="cart-open-button" type="button" data-cart-open aria-label="Abrir carrito">
+            🛒 <span data-cart-count>0</span>
+        </button>
+    </div>
+
+    <main id="product-detail" class="product-detail">
+        <div class="product-detail-image">
+            <img id="product-image" alt="">
+        </div>
+        <section class="product-detail-info">
+            <a class="product-back-link" href="index.html">← Volver al catálogo</a>
+            <p id="product-category" class="product-detail-category"></p>
+            <h1 id="product-name"></h1>
+            <p id="product-brand" class="product-detail-brand"></p>
+            <p id="product-description" class="product-detail-description"></p>
+            <p id="product-price" class="product-detail-price"></p>
+            <label for="product-size">Selecciona tu talla</label>
+            <select id="product-size"></select>
+            <button class="product-add-button" type="button" data-add-to-cart>Agregar al carrito</button>
+        </section>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite">
+        Producto agregado al carrito 🛒
+    </div>
+
+    <div id="cart-backdrop" class="cart-backdrop" hidden></div>
+    <aside id="cart-panel" class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cart-title" hidden>
+        <div class="cart-header">
+            <h2 id="cart-title">Tu carrito <span id="cart-count">0</span></h2>
+            <button class="cart-close" type="button" data-cart-close aria-label="Cerrar carrito">×</button>
+        </div>
+        <div id="cart-items" class="cart-items"></div>
+        <div class="cart-summary">
+            <p>Total <strong id="cart-total">$0</strong></p>
+            <button id="cart-clear" class="cart-clear" type="button">Vaciar carrito</button>
+            <button id="cart-checkout" class="cart-checkout" type="button">Proceder al pago</button>
+            <button id="cart-whatsapp" class="cart-whatsapp" type="button">Pagar por WhatsApp</button>
+        </div>
+    </aside>
+
+    <script src="producto.js"></script>
+    <script src="carrito.js"></script>
+</body>
+</html>

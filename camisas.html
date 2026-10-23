@@ -22,7 +22,10 @@
       <div>
         <a href="index.html">INICIO</a>
     </div>
-
+    <a href="seguimiento.html">SEGUIMIENTO DE PEDIDO</a>
+    <button class="cart-open-button" type="button" data-cart-open aria-label="Abrir carrito">
+        🛒 <span data-cart-count>0</span>
+    </button>
 </div>
 <div class="titulo">
     <h1>Camisas</h1>
@@ -40,7 +43,6 @@
             <img src="https://coach.scene7.com/is/image/Coach/cp978_r8e_a0?$desktopProductZoom$">
             <h3>CAMISETA DE FIRMA</h3>
             <p>Coach</p>
-
             <button onclick="mostrarMensaje()">
                 <span class="precio-boton">$370.999</span>
                 <span class="texto-añadir">Añadir 🛒</span>
@@ -69,6 +71,7 @@
             </button>
         </div>
 
+    
         <div class="producto">
             <img src="https://img01.ztat.net/article/spp-media-p1/895046e399dc43c2b2a71e867cf78c1f/74cde8f7184e40ccbba638756d2acd64.jpg?imwidth=1800">
             <h3>CAMISETA BÁSICA</h3>
@@ -79,6 +82,71 @@
                 <span class="texto-añadir">Añadir 🛒</span>
             </button>
         </div>
+        <div class="producto">
+    <img src="https://undergoldapparel.com/cdn/shop/files/1_0f1ed2bb-539f-4191-9533-ae78de16bf24.jpg?v=1789508834&width=1000">
+    <h3>CAMISETA REVELATION BLACK</h3>
+    <p>UnderGold</p>
+
+    <button onclick="mostrarMensaje()">
+        <span class="precio-boton">$350.000</span>
+        <span class="texto-añadir">Añadir 🛒</span>
+    </button>
+</div>
+
+<div class="producto">
+    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80">
+    <h3>CAMISETA OVERSIZED URBAN</h3>
+    <p>KL COLECTION</p>
+
+    <button onclick="mostrarMensaje()">
+        <span class="precio-boton">$280.000</span>
+        <span class="texto-añadir">Añadir 🛒</span>
+    </button>
+</div>
+
+<div class="producto">
+    <img src="https://http2.mlstatic.com/D_NQ_NP_2X_772691-MCO108879084521_032026-F.webp">
+    <h3>CAMISA COACH</h3>
+    <p>Coach</p>
+
+    <button onclick="mostrarMensaje()">
+        <span class="precio-boton">$320.000</span>
+        <span class="texto-añadir">Añadir 🛒</span>
+    </button>
+</div>
+
+<div class="producto">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSGn0WGBBGSHQcqbVJdvM1ZYwomYQ7359XwP8hqLXWeA&s=10">
+    <h3>CAMISETA LOGO</h3>
+    <p>Nike</p>
+
+    <button onclick="mostrarMensaje()">
+        <span class="precio-boton">$150.000</span>
+        <span class="texto-añadir">Añadir 🛒</span>
+    </button>
+</div>
+
+<div class="producto">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSG6FGA_-k4NDWiIuGK-Ad1RT20RRPVC23lZU9LpWDcXA&s=10">
+    <h3>CAMISETA CLASSIC LOGO</h3>
+    <p>Adidas</p>
+
+    <button onclick="mostrarMensaje()">
+        <span class="precio-boton">$130.000</span>
+        <span class="texto-añadir">Añadir 🛒</span>
+    </button>
+</div>
+
+<div class="producto">
+    <img src="https://la.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-camisa-de-manga-corta-con-motivo-damier-veraniega--HVY26WDFV006_PM2_Front%20view.jpg">
+    <h3>CAMISETA MONOGRAM STYLE</h3>
+    <p>Louis Vuitton</p>
+
+    <button onclick="mostrarMensaje()">
+        <span class="precio-boton">$420.000</span>
+        <span class="texto-añadir">Añadir 🛒</span>
+    </button>
+</div>
 
     </div>
 </div>
@@ -107,6 +175,20 @@
     <div class="footer-bottom">
         © 2026 <span>KL SHOP</span> @KL
     </div>
+<div id="cart-backdrop" class="cart-backdrop" hidden></div>
+<aside id="cart-panel" class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cart-title" hidden>
+    <div class="cart-header">
+        <h2 id="cart-title">Tu carrito <span id="cart-count">0</span></h2>
+        <button class="cart-close" type="button" data-cart-close aria-label="Cerrar carrito">×</button>
+    </div>
+    <div id="cart-items" class="cart-items"></div>
+    <div class="cart-summary">
+        <p>Total <strong id="cart-total">$0</strong></p>
+        <button id="cart-clear" class="cart-clear" type="button">Vaciar carrito</button>
+        <button id="cart-checkout" class="cart-checkout" type="button">Proceder al pago</button>
+        <button id="cart-whatsapp" class="cart-whatsapp" type="button">Pagar por WhatsApp</button>
+    </div>
+</aside>
 <div id="toast" class="toast">Producto agregado al carrito 🛒</div>
 
 <script>
@@ -122,5 +204,7 @@ function mostrarMensaje() {
     }, 2500);
 }
 </script>
+<script src="producto.js"></script>
+<script src="carrito.js"></script>
 </body>
 </html>

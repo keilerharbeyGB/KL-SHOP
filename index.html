@@ -20,7 +20,10 @@
             <a href="zapatos.html">Zapatos</a>
         </div>
     </div>
-
+    <a href="seguimiento.html">SEGUIMIENTO DE PEDIDO</a>
+    <button class="cart-open-button" type="button" data-cart-open aria-label="Abrir carrito">
+        🛒 <span data-cart-count>0</span>
+    </button>
 </div>
 <div class="titulo">
     <h1>KL SHOP</h1>
@@ -93,6 +96,20 @@
     <div class="footer-bottom">
         © 2026 <span>KL SHOP</span> @KL
     </div>
+    <div id="cart-backdrop" class="cart-backdrop" hidden></div>
+    <aside id="cart-panel" class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cart-title" hidden>
+        <div class="cart-header">
+            <h2 id="cart-title">Tu carrito <span id="cart-count">0</span></h2>
+            <button class="cart-close" type="button" data-cart-close aria-label="Cerrar carrito">×</button>
+        </div>
+        <div id="cart-items" class="cart-items"></div>
+        <div class="cart-summary">
+            <p>Total <strong id="cart-total">$0</strong></p>
+            <button id="cart-clear" class="cart-clear" type="button">Vaciar carrito</button>
+            <button id="cart-checkout" class="cart-checkout" type="button">Proceder al pago</button>
+            <button id="cart-whatsapp" class="cart-whatsapp" type="button">Pagar por WhatsApp</button>
+        </div>
+    </aside>
 <div id="toast" class="toast">
     Producto agregado al carrito 🛒
 </div>
@@ -111,6 +128,8 @@ function mostrarMensaje() {
     }, 2500);
 }
 </script>
+<script src="producto.js"></script>
+<script src="carrito.js"></script>
 
 
 </body>

@@ -23,7 +23,10 @@
       <div>
         <a href="index.html">INICIO</a>
     </div>
-
+    <a href="seguimiento.html">SEGUIMIENTO DE PEDIDO</a>
+    <button class="cart-open-button" type="button" data-cart-open aria-label="Abrir carrito">
+        🛒 <span data-cart-count>0</span>
+    </button>
 </div>
 
 
@@ -58,6 +61,58 @@
                 <span class="texto-añadir">Añadir 🛒</span>
             </button>
         </div>
+        
+<div class="producto">
+    <img src="https://lsco.vtexassets.com/arquivos/ids/433554-1280-auto/008SH-0001_14.webp?v=639263853462800000&quality=8">
+    <h3>JEANS BAGGY 501 ORIGINAL</h3>
+    <p>Levi's</p>
+
+    <button onclick="mostrarMensaje()">
+        <span class="precio-boton">$185.000</span>
+        <span class="texto-añadir">Añadir 🛒</span>
+    </button>
+</div>
+
+
+<div class="producto">
+    <img src="https://media.falabella.com/falabellaCO/73156554_1/w=1500,h=1500,fit=cover">
+
+    <h3>Adidas Joggers</h3>
+    <p>Adidas Originals</p>
+
+    <button onclick="mostrarMensaje()">
+        <span class="precio-boton">$319.000</span>
+        <span class="texto-añadir">Añadir 🛒</span>
+    </button>
+</div>
+
+
+<div class="producto">
+    <img src="https://assets.adidas.com/images/w_500%2Cf_auto%2Cq_auto/39e2da4371fa43a98a34afb2017d0d71_9366/Pantalon_Deportivo_Adicolor_Classics_Firebird_Negro_IJ7055_21_model.jpg"
+         alt="Adidas Adicolor Classics Firebird">
+
+    <h3>ADICOLOR CLASSICS FIREBIRD</h3>
+    <p>Adidas Originals</p>
+
+    <button onclick="mostrarMensaje()">
+        <span class="precio-boton">$299.950</span>
+        <span class="texto-añadir">Añadir 🛒</span>
+    </button>
+</div>
+
+<div class="producto">
+    <img src="https://nikeco.vtexassets.com/arquivos/ids/1113802-1200-auto?v=639216285111930000&width=1200&height=auto&aspect=true">
+
+    <h3>JORDAN SPORT CROSSOVER</h3>
+    <p>Nike</p>
+
+    <button onclick="mostrarMensaje()">
+        <span class="precio-boton">$280.000</span>
+        <span class="texto-añadir">Añadir 🛒</span>
+    </button>
+</div>
+
+
 
     </div>
 </div>
@@ -87,6 +142,20 @@
     <div class="footer-bottom">
         © 2026 <span>KL SHOP</span> @KL
     </div>
+<div id="cart-backdrop" class="cart-backdrop" hidden></div>
+<aside id="cart-panel" class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cart-title" hidden>
+    <div class="cart-header">
+        <h2 id="cart-title">Tu carrito <span id="cart-count">0</span></h2>
+        <button class="cart-close" type="button" data-cart-close aria-label="Cerrar carrito">×</button>
+    </div>
+    <div id="cart-items" class="cart-items"></div>
+    <div class="cart-summary">
+        <p>Total <strong id="cart-total">$0</strong></p>
+        <button id="cart-clear" class="cart-clear" type="button">Vaciar carrito</button>
+        <button id="cart-checkout" class="cart-checkout" type="button">Proceder al pago</button>
+        <button id="cart-whatsapp" class="cart-whatsapp" type="button">Pagar por WhatsApp</button>
+    </div>
+</aside>
 <div id="toast" class="toast">Producto agregado al carrito 🛒</div>
 
 <script>
@@ -102,5 +171,7 @@ function mostrarMensaje() {
     }, 2500);
 }
 </script>
+<script src="producto.js"></script>
+<script src="carrito.js"></script>
 </body>
 </html>

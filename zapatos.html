@@ -23,7 +23,10 @@
       <div>
         <a href="index.html">INICIO</a>
     </div>
-
+    <a href="seguimiento.html">SEGUIMIENTO DE PEDIDO</a>
+    <button class="cart-open-button" type="button" data-cart-open aria-label="Abrir carrito">
+        🛒 <span data-cart-count>0</span>
+    </button>
 </div>
 <div class="titulo">
     <h1>Zapatos</h1>
@@ -78,6 +81,56 @@
                 <span class="texto-añadir">Añadir 🛒</span>
             </button>
         </div>
+
+<div class="producto">
+    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=600&q=80">
+    <h3>ADIDAS SAMBA RETRO</h3>
+    <p>Adidas</p>
+    <button onclick="mostrarMensaje()">
+        <span class="precio-boton">$220.000</span>
+        <span class="texto-añadir">Añadir 🛒</span>
+    </button>
+</div>
+
+<div class="producto">
+    <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=600&q=80">
+    <h3>NEW BALANCE 9060</h3>
+    <p>New Balance</p>
+    <button onclick="mostrarMensaje()">
+        <span class="precio-boton">$350.000</span>
+        <span class="texto-añadir">Añadir 🛒</span>
+    </button>
+</div>
+
+<div class="producto">
+    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80">
+    <h3>TENIS DEPORTIVOS AIR</h3>
+    <p>Estilo deportivo</p>
+    <button onclick="mostrarMensaje()">
+        <span class="precio-boton">$150.000</span>
+        <span class="texto-añadir">Añadir 🛒</span>
+    </button>
+</div>
+
+<div class="producto">
+    <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=600&q=80">
+    <h3>ADIDAS CAMPUS URBAN</h3>
+    <p>Adidas</p>
+    <button onclick="mostrarMensaje()">
+        <span class="precio-boton">$250.000</span>
+        <span class="texto-añadir">Añadir 🛒</span>
+    </button>
+</div>
+
+<div class="producto">
+    <img src="https://images.unsplash.com/photo-1495555961986-6d4c1ecb7be3?auto=format&fit=crop&w=600&q=80">
+    <h3>TENIS URBAN STREET</h3>
+    <p>Moda urbana</p>
+    <button onclick="mostrarMensaje()">
+        <span class="precio-boton">$120.000</span>
+        <span class="texto-añadir">Añadir 🛒</span>
+    </button>
+</div>
     </div>
 </div>
 <div class="footer">
@@ -105,6 +158,20 @@
     <div class="footer-bottom">
         © 2026 <span>KL SHOP</span> @KL
     </div>
+<div id="cart-backdrop" class="cart-backdrop" hidden></div>
+<aside id="cart-panel" class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cart-title" hidden>
+    <div class="cart-header">
+        <h2 id="cart-title">Tu carrito <span id="cart-count">0</span></h2>
+        <button class="cart-close" type="button" data-cart-close aria-label="Cerrar carrito">×</button>
+    </div>
+    <div id="cart-items" class="cart-items"></div>
+    <div class="cart-summary">
+        <p>Total <strong id="cart-total">$0</strong></p>
+        <button id="cart-clear" class="cart-clear" type="button">Vaciar carrito</button>
+        <button id="cart-checkout" class="cart-checkout" type="button">Proceder al pago</button>
+        <button id="cart-whatsapp" class="cart-whatsapp" type="button">Pagar por WhatsApp</button>
+    </div>
+</aside>
 <div id="toast" class="toast">
     Producto agregado al carrito 🛒
 </div>
@@ -123,5 +190,7 @@ function mostrarMensaje() {
     }, 2500);
 }
 </script>
+<script src="producto.js"></script>
+<script src="carrito.js"></script>
 </body>
 </html>

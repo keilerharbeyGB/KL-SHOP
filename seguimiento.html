@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguimiento de pedido | KL SHOP</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <nav class="navbar" aria-label="Navegación principal">
+        <a href="index.html">KL SHOP</a>
+        <a href="index.html">INICIO</a>
+        <a href="seguimiento.html" aria-current="page">SEGUIMIENTO DE PEDIDO</a>
+    </nav>
+
+    <main>
+        <div class="titulo">
+            <h1>Seguimiento</h1>
+            <div class="linea"></div>
+            <p class="subtitulo">Consulta el estado de tu pedido</p>
+        </div>
+
+        <section class="formulario" aria-labelledby="tracking-title">
+            <form id="tracking-form">
+                <h2 id="tracking-title">Rastrea tu pedido</h2>
+                <p class="tracking-help">Ingresa el código de seguimiento de tu pedido.</p>
+                <label for="order-number">Número de pedido</label>
+                <input id="order-number" name="pedido" type="text" autocomplete="off" placeholder="Ej. KL-2026-A1B2C3D4" required>
+                <button type="submit">CONSULTAR PEDIDO</button>
+                <p id="tracking-result" class="tracking-result" role="status" aria-live="polite"></p>
+                <div id="tracking-order-details" class="tracking-order-details" hidden></div>
+                <a id="tracking-support" class="tracking-support" href="https://wa.me/573238207335" target="_blank" rel="noopener noreferrer">Contactar a KL SHOP por WhatsApp</a>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        const trackingForm = document.getElementById("tracking-form");
+        const trackingInput = document.getElementById("order-number");
+        const trackingResult = document.getElementById("tracking-result");
+        const trackingDetails = document.getElementById("tracking-order-details");
+        const trackingSupport = document.getElementById("tracking-support");
+        const orderStorageKey = "kl-shop-pedidos";
+
+        function formatPrice(price) {
+            return new Intl.NumberFormat("es-CO", {
+                style: "currency",
+                currency: "COP",
+                maximumFractionDigits: 0
+            }).format(price);
+        }
+
+        function lookupOrder(code) {
+            trackingDetails.replaceChildren();
+            trackingDetails.hidden = true;
+            trackingResult.className = "tracking-result";
+
+            let orders;
+            try {
+                orders = JSON.parse(localStorage.getItem(orderStorageKey) || "[]");
+                if (!Array.isArray(orders)) throw new Error("El registro no es válido.");
+            } catch (error) {
+                console.error("No se pudieron consultar los pedidos guardados:", error);
+                trackingResult.textContent = "No se pudo consultar el pedido. Inténtalo de nuevo más tarde.";
+                trackingResult.classList.add("tracking-result-error");
+                return;
+            }
+
+            const order = orders.find(item =>
+                item && typeof item.code === "string" && item.code.toLocaleUpperCase("es") === code.toLocaleUpperCase("es")
+            );
+            if (!order) {
+                trackingResult.textContent = "No encontramos el pedido. Verifica el código e inténtalo de nuevo.";
+                trackingResult.classList.add("tracking-result-error");
+                trackingSupport.href = `https://wa.me/573238207335?text=${encodeURIComponent(`Hola, necesito ayuda con el pedido ${code}.`)}`;
+                return;
+            }
+
+            trackingResult.textContent = `Pedido encontrado: ${order.code}`;
+            const state = document.createElement("p");
+            state.textContent = order.status.includes("demostración") ? "Estado: Pedido recibido" : `Estado: ${order.status}`;
+            const total = document.createElement("p");
+            total.textContent = `Total: ${formatPrice(order.total)}`;
+            const date = document.createElement("p");
+            date.textContent = `Registrado: ${new Date(order.createdAt).toLocaleString("es-CO")}`;
+            const itemList = document.createElement("ul");
+            (Array.isArray(order.items) ? order.items : []).forEach(item => {
+                const listItem = document.createElement("li");
+                listItem.textContent = `${item.quantity} × ${item.name}${item.size ? ` (talla ${item.size})` : ""}`;
+                itemList.append(listItem);
+            });
+            trackingDetails.append(state, total, date, itemList);
+            trackingDetails.hidden = false;
+        }
+
+        trackingForm.addEventListener("submit", event => {
+            event.preventDefault();
+            if (!trackingForm.reportValidity()) return;
+            const code = trackingInput.value.trim();
+            lookupOrder(code);
+        });
+
+        const initialCode = new URLSearchParams(window.location.search).get("codigo");
+        if (initialCode) {
+            trackingInput.value = initialCode;
+            lookupOrder(initialCode);
+        }
+    </script>
+</body>
+</html>

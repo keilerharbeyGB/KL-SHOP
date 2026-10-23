@@ -5,53 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Devoluciones | KL SHOP</title>
     <link rel="stylesheet" href="estilos.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
-
 <body>
-
     <div class="titulo">
         <h1>Devoluciones</h1>
         <div class="linea"></div>
         <p class="subtitulo">Solicita tu devolución</p>
     </div>
-
     <div class="formulario">
         <form id="formulario-devolucion">
-
             <label>Nombre completo</label>
-            <input type="text" placeholder="Ingresa tu nombre" required>
-
+            <input type="text" name="nombre" placeholder="Ingresa tu nombre" required>
             <label>Correo electrónico</label>
-            <input type="email" placeholder="Ingresa tu correo" required>
-
+            <input type="email" name="correo" placeholder="Ingresa tu correo" required>
             <label>Número de pedido</label>
-            <input type="text" placeholder="Ej: KL12345" required>
-
+            <input type="text" name="pedido" placeholder="Ej: KL12345" required>
             <label>Motivo de la devolución</label>
-            <input type="text" placeholder="Escribe el motivo" required>
-
+            <input type="text" name="motivo" placeholder="Escribe el motivo" required>
             <label>Mensaje</label>
-            <textarea placeholder="Cuéntanos qué ocurrió" required></textarea>
-
-            <button type="submit">ENVIAR SOLICITUD</button>
-
-            <p id="mensaje-enviado">Solicitud enviada</p>
-
+            <textarea name="mensaje" placeholder="Cuéntanos qué ocurrió" required></textarea>
+            <button type="submit" id="boton-enviar">ENVIAR SOLICITUD</button>
+            <p id="mensaje-enviado" style="display: none;"></p>
         </form>
     </div>
-
-<script>
-    document.getElementById("formulario-devolucion").addEventListener("submit", function(event) {
-        event.preventDefault();
-
-        document.getElementById("mensaje-enviado").style.display = "block";
-
-        this.reset();
-
-        setTimeout(() => {
-        window.location.href = "./index.html";
-        },2500);
-    });
-</script>
+    <script>
+        const EMAILJS_PUBLIC_KEY = "HhJoLpNWwaL0Q5q37";
+        const EMAILJS_SERVICE_ID = "service_emjg5in";
+        const EMAILJS_TEMPLATE_ID = "template_29lym3p";
+        emailjs.init({
+            publicKey: EMAILJS_PUBLIC_KEY
+        });
+        document.getElementById("formulario-devolucion").addEventListener("submit", async function(event) {
+            event.preventDefault();
+            const boton = document.getElementById("boton-enviar");
+            const mensaje = document.getElementById("mensaje-enviado");
+            boton.disabled = true;
+            boton.textContent = "ENVIANDO...";
+            mensaje.style.display = "none";
+            try {
+                await emailjs.sendForm(
+                    EMAILJS_SERVICE_ID,
+                    EMAILJS_TEMPLATE_ID,
+                    this
+                );
+                mensaje.textContent = "¡Solicitud enviada correctamente!";
+                mensaje.style.color = "#D4AF37";
+                mensaje.style.display = "block";
+                this.reset();
+                setTimeout(() => {
+                    window.location.href = "./index.html";
+                }, 2500);
+            } catch (error) {
+                console.error("Error al enviar la devolución:", error);
+                mensaje.textContent = "No se pudo enviar. Inténtalo nuevamente.";
+                mensaje.style.color = "#D4AF37";
+                mensaje.style.display = "block";
+            } finally {
+                boton.disabled = false;
+                boton.textContent = "ENVIAR SOLICITUD";
+            }
+        });
+    </script>
 </body>
 </html>
